@@ -1,0 +1,18 @@
+﻿# This is the requirements file for our CartPole DQN project.
+# Install all required libraries by running:
+# pip install -r requirements.txt
+#
+# gymnasium is used for creating the RL environment.
+gymnasium>=0.26.0
+#
+# torch is needed for building and training our neural network.
+torch>=2.0.0
+#
+# numpy is used for handling numerical operations and arrays.
+numpy>=1.21.0
+#
+# matplotlib is used for plotting the learning curves and graphs.
+matplotlib>=3.4.0
+#
+# pandas is used for data handling and reporting the results.
+pandas>=1.3.0
