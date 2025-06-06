@@ -69,7 +69,7 @@ The experiments generate several plots in the `plots/` directory:
 
 ## Author
 
-Praneeth Dathu - S4174089
+Praneeth Dathu
 
 ## License
 
