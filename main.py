@@ -63,7 +63,7 @@ class ReplayBuffer:
         self.buffer.append((state, action, reward, next_state, done))
     
     def sample(self, batch_size):
-        # Randomly select a batch of experiences, yaar
+        # Randomly select a batch of experiences
         batch = random.sample(self.buffer, batch_size)
         states, actions, rewards, next_states, dones = map(np.array, zip(*batch))
         return states, actions, rewards, next_states, dones
@@ -154,7 +154,7 @@ def train_cartpole_dqn(config, total_timesteps=100000, max_steps_per_episode=500
     
     scaler = torch.amp.GradScaler() if device.type == "cuda" else None
 
-    # Create multiple environments to speed up training, yaar
+    # Create multiple environments to speed up training
     env = gym.vector.SyncVectorEnv([lambda: gym.make("CartPole-v1") for _ in range(num_envs)])
     states, _ = env.reset(seed=seed)
     
@@ -247,7 +247,7 @@ def train_cartpole_dqn(config, total_timesteps=100000, max_steps_per_episode=500
         return episode_rewards, learning_curve, step_record
     return episode_rewards, learning_curve
 
-# DQN trainer class with replay buffer and target network, simple style yaar
+# DQN trainer class with replay buffer and target network, simple style
 class DQNReplayTargetTrainer:
     def __init__(self, config, total_timesteps, max_steps_per_episode, batch_size, gamma, lr,
                  epsilon_start, epsilon_end, epsilon_decay, buffer_capacity, target_update_freq,
