@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 import time
 import pandas as pd
 
-# Create directories to save our plot images, boss
+# Create directories to save our plot images
 os.makedirs("plots", exist_ok=True)
 os.makedirs("plots/grid_curves", exist_ok=True)  # For saving grid search curves
 
@@ -30,7 +30,7 @@ if device.type == "cuda":
     logger.info(f"GPU in use: {torch.cuda.get_device_name(0)}")
 
 def smooth_curve(data, window=80):
-    # Simple function to smooth data with moving average, boss
+    # Simple function to smooth data with moving average
     if len(data) < window:
         return data
     return np.convolve(data, np.ones(window) / window, mode="valid")
@@ -220,7 +220,7 @@ def train_cartpole_dqn(config, total_timesteps=100000, max_steps_per_episode=500
         
         total_steps += num_envs
         
-        # Update target network every now and then, boss
+        # Update target network every now and then
         if target_net is not None and (total_steps % target_update_freq < num_envs):
             target_net.load_state_dict(policy_net.state_dict())
         
@@ -350,7 +350,7 @@ class DQNReplayTargetTrainer:
         self.env.close()
         return np.array(episode_rewards)
 
-# Experiment function: Run experiments for various configurations, boss
+# Experiment function: Run experiments for various configurations
 def run_all_configurations():
     """
     Run experiments for 4 configurations:
@@ -510,7 +510,7 @@ def run_grid_search():
     logger.info(f"Grid Search Results:\n{df}")
     return grid_results, df
 
-# Ablation study for exploration (epsilon decay) – simple experiment, boss
+# Ablation study for exploration (epsilon decay) – simple experiment
 def run_ablation_study_exploration():
     """
     Ablation study on the exploration factor (epsilon decay) using "tn_er" configuration.
